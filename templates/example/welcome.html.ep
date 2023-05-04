@@ -1,0 +1,182 @@
+% layout 'default'; 
+% title 'Welcome';
+<h2><%= $msg %></h2>
+<p>
+  This page was generated from the template "templates/example/welcome.html.ep"
+  and the layout "templates/layouts/default.html.ep", <%= link_to 'click here'=>
+  url_for %> to reload the page or <%= link_to 'here' => '/index.html' %> to
+  move forward to a static page.
+</p>
+<form class="row" method="POST" action="">
+  <div class="col-6">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Customer_id</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Store_id</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">First_name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Last_name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Activebool</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Active</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput2"
+        placeholder="Another input"
+      />
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="form-group">
+      <label for="formGroupExampleInput">address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">address2</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">district</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">city_id</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">postal_code</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">phone</label>
+      <input
+        type="text"
+        class="form-control"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+      />
+    </div>
+  </div>
+  <button class="btn btn-success mb-3" href="<%= url_for('create') %>">
+    Create
+  </button>
+</form>
+<table id="customers" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Customer_id</th>
+      <th scope="col">Store_id</th>
+      <th scope="col">First_name</th>
+      <th scope="col">Last_name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Activebool</th>
+      <th scope="col">Create_date</th>
+      <th scope="col">Last_update</th>
+      <th scope="col">Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for my $customer (@$customers) { %>
+    <tr>
+      <td scope="row"><%= $customer->{customer_id} %></td>
+      <td><%= $customer->{store_id} %></td>
+      <td><%= $customer->{first_name} %></td>
+      <td><%= $customer->{last_name} %></td>
+      <td><%= $customer->{email} %></td>
+      <td><%= $customer->{address_id} %></td>
+      <td><%= $customer->{activebool} %></td>
+      <td><%= $customer->{create_date} %></td>
+      <td><%= $customer->{last_update} %></td>
+      <td><%= $customer->{active} %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function () {
+    $("#customers").DataTable();
+  });
+</script>
